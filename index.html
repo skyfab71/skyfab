@@ -1613,6 +1613,40 @@
 
     .block{font-size:clamp(1.9375rem, 3.9vw, 3.0625rem)}
     .sub{line-height: 1.2em; font-weight: 900; margin: 0 0 1rem 0;}
+        @media (max-width: 768px) {
+  .services {
+    padding: 60px 15px;
+  }
+
+  .services-header h2 {
+    font-size: 28px;
+  }
+
+  .services-header p {
+    font-size: 14px;
+  }
+
+  .astronaut {
+    position: static;
+    width: 100%;
+    height: auto;
+    transform: none;
+    margin-top: 20px;
+  }
+
+  /* Rend les lignes de cartes verticales */
+  .services > div {
+    flex-direction: column !important;
+    align-items: center;
+  }
+
+  .feature-card {
+    width: 100%;
+    max-width: 360px;
+    margin: 10px auto;
+  }
+}
+
 </style>
 
 
