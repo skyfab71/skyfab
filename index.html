@@ -7,6 +7,8 @@
   <meta name="description" content="SkyFab est une agence web freelance spécialisée dans la création de sites internet, solutions IA, outils administrateurs et logiciels personnalisés.">
   <meta name="keywords" content="développeur web freelance, agence web, création de site internet, intelligence artificielle, outils entreprise, SkyFab, site vitrine, SaaS, responsive design">
   <meta name="author" content="SkyFab">
+  <meta name="robots" content="noindex, nofollow">
+
 
   <!-- Balises Open Graph (réseaux sociaux) -->
   <meta property="og:title" content="SkyFab | Développeur Web Freelance & Agence IA" />
@@ -77,6 +79,10 @@
       padding: 0;
       box-sizing: border-box;
     }
+    html,body{
+      width: 100%;
+      overflow-x: hidden;
+    }
 
     body {
       font-family: sans-serif;
@@ -97,100 +103,153 @@
       backdrop-filter: blur(6px);
     }
 
-    .logo h1 {
-      margin: 0;
-      color: white;
-      font-weight: bold;
-      font-size: 24px;
-      text-shadow: 0 0 10px #fff;
-    }
-
-    .logo p {
-      margin: 5px 0 0;
-      font-size: 13px;
-      color: #aaa;
-      font-style: italic;
-      line-height: 1.2;
-    }
-
-    .nav-links a {
-      color:#9c91cb;
-      text-decoration: none;
-      margin-left: 30px;
-      font-size: 14px;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #fff;
-    }
-
-    section {
-      height:;
-      width:100vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .burger {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: blueviolet;
+      cursor: pointer;
       position: relative;
-      color: white;
-      z-index: 1;
-      text-shadow: 0 0 10px black;
+      z-index: 11;
     }
 
-    .video-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
+        .logo h1 {
+          margin: 0;
+          color: white;
+          font-weight: bold;
+          font-size: 24px;
+          text-shadow: 0 0 10px #fff;
+        }
 
-    section:nth-child(2) {
-      background-color: #f5f5f5;
-      color: black;
-      text-shadow: none;
-    }
+        .logo p {
+          margin: 5px 0 0;
+          font-size: 13px;
+          color: #aaa;
+          font-style: italic;
+          line-height: 1.2;
+        }
 
-    .content {
-      z-index: 1;
-      font-size: 2em;
-      text-align: center;
-    }
+        .nav-links a {
+          color:#9c91cb;
+          text-decoration: none;
+          margin-left: 30px;
+          font-size: 14px;
+          transition: color 0.3s;
+        }
 
-    h2{    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;}
+        .nav-links a:hover {
+          color: #fff;
+        }
 
-    .loading-bar {
-      margin-top: 30px;
-      height: 10px;
-      width: 120px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50px;
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-      overflow: hidden;
-    }
+        section {
+          height:;
+          width:100vw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          color: white;
+          z-index: 1;
+          text-shadow: 0 0 10px black;
+        }
 
-    .loading-bar .bar {
-      height: 100%;
-      width: 40%;
-      background: cyan;
-      border-radius: 50px;
-      animation: loading 2s infinite ease-in-out;
-    }
+        .video-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          z-index: 0;
+        }
 
-    @keyframes loading {
-      0% { margin-left: 0%; }
-      50% { margin-left: 60%; }
-      100% { margin-left: 0%; }
+        section:nth-child(2) {
+          background-color: #f5f5f5;
+          color: black;
+          text-shadow: none;
+        }
+
+        .content {
+          z-index: 1;
+          font-size: 2em;
+          text-align: center;
+        }
+
+        h2{    margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;}
+
+        .loading-bar {
+          margin-top: 30px;
+          height: 10px;
+          width: 120px;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 50px;
+          margin-left: auto;
+          margin-right: auto;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .loading-bar .bar {
+          height: 100%;
+          width: 40%;
+          background: cyan;
+          border-radius: 50px;
+          animation: loading 2s infinite ease-in-out;
+        }
+
+        @keyframes loading {
+          0% { margin-left: 0%; }
+          50% { margin-left: 60%; }
+          100% { margin-left: 0%; }
+        }
+
+     /* Responsive mobile */
+    @media (max-width: 768px) {
+      .burger {
+        display: block;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        position: fixed;
+        top: 0;
+        right: -100%; /* caché par défaut */
+        height: 100%;
+        width: 70%;
+        background-color: rgba(0, 0, 0, 0.95);
+        transition: right 0.3s ease-in-out;
+        z-index: 9;
+        pointer-events:none;
+      }
+
+      .nav-links.show {
+        display:flex;
+        flex-direction:;
+        right: 0; /* slide in */
+        pointer-events: auto;
+        opacity: 1;
+      }
+
+      .nav-links a {
+        color: #9c91cb;
+        padding: 15px 0;
+        text-decoration: none;
+        font-size: 18px;
+      }
+
     }
   </style>
+
+
 </head>
+
+
 <body>
   <style>
 
@@ -248,13 +307,17 @@
 <button id="scrollToTop" title="Scroll to top"><img src="fleches-vers-le-haut.png" alt="Retour en haut"></button>
 
   <header class="navbar">
+
     <div class="logo">
-      <h1 a href="/">SKYFAB</h1>
+      <h1>SKYFAB</h1>
       <p><em>web agency<br>ai agentic<br>everything you need</em></p>
     </div>
-    <nav class="nav-links" aria-label="Navigation principale">
-      <a href="#ct">< Nous contacter ></a>
-      <a href="#acr">< À-propos-de-nous ></a>
+
+    
+    <button class="burger" id="burger">&#9776;</button>  
+    <nav class="nav-links" id="nav-links" aria-label="Navigation principale">
+      <a href="#ct">&lt; Nous contacter &gt;</a>
+      <a href="#acr">&lt; À-propos-de-nous &gt;</a>
     </nav>
   </header>
 
@@ -265,76 +328,102 @@
       <div class="typed-text">< Bienvenue sur SkyFab. ></div>
   </section>
 
-  <section style="height:100vh;">
-    <div class="spacer"></div>
-    <div class="box gradient-green"></div>
-    <div class="circle gradient-purple"></div>
-    <div class="container">
-      <h2 class="split">Chez Skyfb nous avons a coeur de vous accompagnez sur la planete web  </h2>
-    </div>
 
-    <div class="spacer"></div>
 
-  </section>
+
+
+
+
+
+
+
+
+
 
 <style type="text/css">
+
+
+    .spacer {
+      height: 100px;
+    }
+
     .container {
       width: 90vw;
+      max-width: 800px;
+      text-align: center;
     }
 
     .split {
       opacity: 0;
-      text-align: center;
       font-size: 2rem;
-      will-change: transform;
+      line-height: 1.6;
     }
 
-    .split * {
-      will-change: transform;
-    }
 
-</style>
-<script type="text/javascript">
-  gsap.registerPlugin(SplitText);
-    console.clear();
+  </style>
+</head>
+<body>
+
+  <section style="height:300px; background-color:black; color:#ebeeec; text-shadow: none;">
+    <div class="spacer"></div>
+
+    <div class="container">
+      <h2 class="split"></h2>
+    </div>
+    <div class="spacer"></div>
+  </section>
+
+  <!-- GSAP + SplitText -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/SplitText.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(SplitText);
     gsap.set(".split", { opacity: 1 });
 
-    // we'll need to know the start timestamp of the splittext animation 
-    // so that it can be inserted into the timeline at the right point
-    let startTime = 0.5
+    const tl = gsap.timeline();
 
+    // Animation des éléments décoratifs
+    tl.to(".box", { rotation: 360, x: -100, duration: 4, ease: "power1.inOut" }, 0);
+    tl.to(".circle", { rotation: 360, x: 100, duration: 4, ease: "power1.inOut" }, 0);
+
+    // Animation du texte SplitText
     document.fonts.ready.then(() => {
-      // We can create the main timeline once - outside the onSplit callback
-      let tl = gsap.timeline({repeat: -1, yoyo: true});
-      tl.to(".box", { rotation: 360, x: -100 }, 0);
-      tl.to(".circle", { rotation: 360, x: 100 }, 2);
-      
-      // But we'll still need to revert and re-create the SplitText animation 
-      // whenever the text reflows and the text re-splits.
-      let lineSplitAnimation;
-      SplitText.create(".split", {
-        type: "words,lines",
-        autoSplit: true,
-        mask: "lines",
-        onSplit(self) {
-          console.log("Splitting text - if this is re-splitting, the original Split DOM is destroyed and any previously created animations targeting those elements will not work anymore. It's important to create new animations when the new DOM is created.")
-          // if there's an animation, revert it
-          lineSplitAnimation && lineSplitAnimation.revert();
-          // create the animation
-          lineSplitAnimation = gsap.from(self.words, {
-            duration: 0.8,
-            y: 30,
-            opacity: 0,
-            stagger: {
-              amount: 0.6
-            }
-          });
-          // now insert it into the timeline at the correct spot.
-          tl.add(lineSplitAnimation, startTime);
-        }
-      });
+      const split = new SplitText(".split", { type: "words,lines" });
+      tl.from(split.words, {
+        duration: 1,
+        y: 40,
+        opacity: 0,
+        stagger: 0.05,
+        ease: "power2.out"
+      }, 0.5);
     });
-</script>
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <section id="about" class="services" style="gap:100px;">
@@ -735,142 +824,15 @@
       </div>
     </div>
 
-    <div class="gsa">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-1.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-2.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-3.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-4.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-5.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-6.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-7.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-8.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-1.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-2.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-3.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-4.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-5.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-6.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-7.png" alt="">
-      <img class="flair" src="https://assets.codepen.io/16327/Revised+Flair-8.png" alt="">
-    </div>
+
   </section>
 
 
 
 
-<style type="text/css">
-    .flair {
-    position: fixed;
-    opacity: 0;
-    width: 30px;
-  }
-</style>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
-<script type="text/javascript">
-
-    gsap.from("gsa", {
-      scale: 0,
-      ease: "back.out(2)",
-      delay: 1,
-    })
-
-    function playAnimation(shape) {
-     // the timeline
-      let tl = gsap.timeline();
-      tl.from(shape,{
-        opacity: 0,
-        scale: 0,
-        ease: "elastic.out(1,0.3)",
-      })
-      .to(shape,{
-        rotation: "random([-360, 360])",
-      }, "<")
-      .to(shape,{
-        y: "120vh",
-        ease: "back.in(.4)",
-        duration: 1,
-      },0)
-      
-    }
-
-    /* --------------------------------
-
-    The other stuff...
-
-    ------------------------------------*/
-    let flair = gsap.utils.toArray(".flair");
-    let gap = 100; // if you're nosy though, this number spaces the 'lil shapes out
-    let index = 0;
-    let wrapper = gsap.utils.wrap(0, flair.length);
-    gsap.defaults({duration: 1})
-
-    let mousePos = { x: 0, y: 0 };
-    let lastMousePos = mousePos;
-    let cachedMousePos = mousePos;
-
-    window.addEventListener("mousemove", (e) => {
-      mousePos = {
-        x: e.x,
-        y: e.y
-      };
-    });
-
-    gsap.ticker.add(ImageTrail);
-
-    function ImageTrail() {
-      let travelDistance = Math.hypot(
-        lastMousePos.x - mousePos.x,
-        lastMousePos.y - mousePos.y
-      );
-
-      // keep the previous mouse position for animation
-      cachedMousePos.x = gsap.utils.interpolate(
-        cachedMousePos.x || mousePos.x,
-        mousePos.x,
-        0.1
-      );
-      cachedMousePos.y = gsap.utils.interpolate(
-        cachedMousePos.y || mousePos.y,
-        mousePos.y,
-        0.1
-      );
-
-      if (travelDistance > gap) {
-        animateImage();
-        lastMousePos = mousePos;
-      }
-    }
-
-    function animateImage() {
-      let wrappedIndex = wrapper(index);
-
-      console.log(index, flair.length);
-
-      let img = flair[wrappedIndex];
-      gsap.killTweensOf(img);
-      
-      gsap.set(img, {
-        clearProps: "all",
-      });
-      
-
-      gsap.set(img, {
-        opacity: 1,
-        left: mousePos.x,
-        top: mousePos.y,
-        xPercent: -50,
-        yPercent: -50,
-      });
-
-      playAnimation(img);
-
-      index++;
-    }
-</script>
 
 
 
@@ -1000,7 +962,7 @@
     </div>
     <div class="center-panel">
       <span>01 — 03</span>
-      <h1>Conception UX/UI</h1>
+      <h2>Conception UX/UI</h2>
       <p>Chez SkyFab, chaque projet démarre par une réflexion sur l’expérience utilisateur (UX) et l’interface (UI).</p>
       <p> Notre objectif : concevoir des interfaces intuitives, agréables à utiliser et adaptées à chaque profil d’utilisateur.
       Je pense l’UX comme un parcours fluide, sans friction, où chaque interaction est logique et naturelle. Côté UI, je privilégie un design sobre, moderne et cohérent, avec une hiérarchie visuelle claire et des éléments graphiques légers mais percutants.</p>
@@ -1014,13 +976,17 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg" alt="Neptune" />
     </div>
   </div>
+
+
+
 </section>
 
-
-<div class="quote">
-  <p>“Le design n’est pas seulement ce à quoi ça ressemble. Le design est comment ça marche.”</p>
-  <span>— Steve Jobs</span>
-</div>
+<section style="background-color:black; margin:100px 0px 100px 0px;"> 
+  <div class="quote">
+    <p>“Le design n’est pas seulement ce à quoi ça ressemble. Le design est comment ça marche.”</p>
+    <span>— Steve Jobs</span>
+  </div>
+</section>
 
 <style>
   .quote {
@@ -1613,7 +1579,8 @@
 
     .block{font-size:clamp(1.9375rem, 3.9vw, 3.0625rem)}
     .sub{line-height: 1.2em; font-weight: 900; margin: 0 0 1rem 0;}
-        @media (max-width: 768px) {
+
+    @media (max-width: 768px) {
   .services {
     padding: 60px 15px;
   }
@@ -2585,6 +2552,17 @@
   }
 </style>
 
+  
+<script>
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav-links');
+
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('show');
+    burger.textContent = nav.classList.contains('show') ? '✕' : '☰';
+  });
+</script>
+
 
   <script>
     const observer = new IntersectionObserver((entries) => {
@@ -2626,3 +2604,4 @@
 
 </body>
 </html>
+
