@@ -3,34 +3,70 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SkyFab | Développeur Web Freelance & Agence IA</title>
-  <meta name="description" content="SkyFab est une agence web freelance spécialisée dans la création de sites internet, solutions IA, outils administrateurs et logiciels personnalisés.">
+  <title>SkyFab | Création de Sites Web, Logiciels SaaS & IA</title>
+
+  <link rel="icon" href="Capture d’écran 2025-05-29 121014.png" type="image/x-icon"
+  sizes="64x64">
+  <link rel="apple-touch-icon" href="Capture d’écran 2025-05-29 121014.png" sizes="180x180">
+
+
   <meta name="keywords" content="développeur web freelance, agence web, création de site internet, intelligence artificielle, outils entreprise, SkyFab, site vitrine, SaaS, responsive design">
   <meta name="author" content="SkyFab">
-  <meta name="robots" content="noindex, nofollow">
+
 
 
   <!-- Balises Open Graph (réseaux sociaux) -->
   <meta property="og:title" content="SkyFab | Développeur Web Freelance & Agence IA" />
-  <meta property="og:description" content="Création de sites web, outils d'administration et solutions IA. SkyFab vous accompagne dans le développement digital." />
-  <meta property="og:image" content="https://ton-domaine.com/skyfab-preview.jpg" /> <!-- remplace par une image réelle -->
-  <meta property="og:url" content="https://ton-domaine.com" />
+  <meta property="og:description" content="Création de sites web, logiciel SAAS et agent IA. SkyFab vous accompagne dans le développement digital." />
+  <meta property="og:image" content="https://skyfab.fr/opengraph.png" /> <!-- remplace par une image réelle -->
+  <meta property="og:url" content="https://skyfab.fr" />
   <meta property="og:type" content="website" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SkyFab | Développeur Web Freelance & Agence IA">
   <meta name="twitter:description" content="Création de sites web, outils d'administration et solutions IA. SkyFab vous accompagne dans le développement digital.">
-  <meta name="twitter:image" content="https://ton-domaine.com/skyfab-preview.jpg">
+  <meta name="twitter:image" content="https://skyfab.fr/opengraph.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Source+Sans+3:wght@400;600&family=Yellowtail&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
- <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
 
-  <meta name="robots" content="index, follow">
   <meta name="description" content="SkyFab, développeur web freelance au Creusot (71 - Saône-et-Loire). Création de sites vitrines, e-commerce, applications sur-mesure et agents IA." />
+  
   <link rel="canonical" href="https://www.skyfab.fr" />
-  <title>Skyfab - développeur web & IA</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Source+Sans+3:wght@400;600&family=Yellowtail&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+
+  <script type="application/ld+json">
+    {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "SkyFab",
+          "alternateName": "SkyFab Développeur Web Freelance & Agence IA",
+          "url": "https://skyfab.fr",
+          "logo": "https://skyfab.fr/Capture d’écran 2025-05-29 121014.png",
+          "description": "SkyFab est une agence web freelance spécialisée dans la création de sites internet, d’applications SaaS, et d’agents d’intelligence artificielle. Nous accompagnons particuliers, professionnels et entreprises.",
+          "founder": {
+            "@type": "Person",
+            "name": "SkyFab"
+          },
+          "sameAs": [
+            "https://www.instagram.com/skyfab",
+            "https://www.snapchat.com/skyfab",
+            "https://www.facebook.com/skyfab"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "skyfab71@gmail.com",
+            "contactType": "Customer Support",
+            "availableLanguage": ["French", "English"]
+          }
+        }
+  </script>
 
 
   <style>
@@ -1520,13 +1556,8 @@
       flex-direction: column;
       opacity: 0;
       transform: translateY(50px);
-      transition: opacity 1s ease, transform 1s ease;
     }
 
-    .services.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
 
     .services-header {
       max-width: 800px;
@@ -2456,7 +2487,7 @@
     <img src="snapchat.png" alt="Snapchat">
   </a>
   
-  <a href="https://facebook.com" target="_blank" class="social-icon facebook">
+  <a href="https://www.facebook.com/profile.php?id=61575252985680" target="_blank" class="social-icon facebook">
     <div class="halo"></div>
     <img src="facebook.png" alt="Facebook">
   </a>
@@ -2563,18 +2594,27 @@
   });
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.3 });
+  gsap.fromTo(".services",
+    { opacity: 0, y: 50 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".services",
+        start: "top 80%", // quand le haut de .services entre dans le viewport à 80%
+        toggleActions: "play none none none"
+      }
+    }
+  );
+</script>
 
-    observer.observe(document.querySelector('.services'));
-  </script>
   <script>
     const scrollBtn = document.getElementById("scrollToTop");
 
