@@ -1415,6 +1415,247 @@
   </div>
 </section>
 
+   <style>
+            /* Testimonials Section */
+        .testimonials-section {
+            position: relative;
+            padding: 80px 0 120px;
+            background: linear-gradient(180deg, #0a0a0a 0%, #040506 50%, #0a0a0a 100%);
+            overflow: hidden;
+        }
+
+        .testimonials-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+        }
+
+        .testimonials-bg::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, transparent 1px, rgba(255, 255, 255, 0.05) 1px, rgba(255, 255, 255, 0.05) 8px, transparent 8px);
+            background-size: 16px 16px;
+        }
+
+        .testimonial-carousel {
+            position: relative;
+            margin-top: 64px;
+        }
+
+        .testimonial-card {
+            position: relative;
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+
+        .testimonial-quote-icon {
+            position: absolute;
+            top: -24px;
+            left: -24px;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #43b4e7 0%, #6366cd 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(67, 180, 231, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-quote-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .testimonial-content {
+            position: relative;
+            padding: 32px 48px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(67, 180, 231, 0.2);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        .testimonial-content:hover {
+            border-color: rgba(67, 180, 231, 0.3);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.4);
+        }
+
+        .testimonial-content::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(67, 180, 231, 0.05) 0%, rgba(99, 102, 205, 0.05) 100%);
+            border-radius: 24px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .testimonial-content:hover::before {
+            opacity: 1;
+        }
+
+        .testimonial-stars {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .star {
+            width: 24px;
+            height: 24px;
+            color: #43b4e7;
+            opacity: 0;
+            animation: starAppear 0.3s ease forwards;
+        }
+
+        .star:nth-child(1) { animation-delay: 0s; }
+        .star:nth-child(2) { animation-delay: 0.1s; }
+        .star:nth-child(3) { animation-delay: 0.2s; }
+        .star:nth-child(4) { animation-delay: 0.3s; }
+        .star:nth-child(5) { animation-delay: 0.4s; }
+
+        @keyframes starAppear {
+            0% { opacity: 0; transform: scale(0); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .testimonial-text {
+            font-size: clamp(1.25rem, 3vw, 2rem);
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            font-style: italic;
+            position: relative;
+            z-index: 10;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .author-avatar {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #43b4e7 0%, #6366cd 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.125rem;
+            box-shadow: 0 10px 30px rgba(67, 180, 231, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .author-avatar:hover {
+            transform: scale(1.1);
+        }
+
+        .author-info {
+            text-align: center;
+        }
+
+        .author-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .author-title {
+            color: #43b4e7;
+            font-size: 0.875rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .nav-btn {
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(67, 180, 231, 0.2);
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: rgba(67, 180, 231, 0.1);
+            border-color: rgba(67, 180, 231, 0.3);
+            color: #43b4e7;
+            transform: scale(1.1);
+        }
+
+        .nav-dots {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: linear-gradient(90deg, #43b4e7 0%, #6366cd 100%);
+            transform: scale(1.25);
+        }
+
+        .nav-dot:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.2);
+        }
+
+        .section-cta {
+            text-align: center;
+            margin-top: 64px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Utilities */
+        .text-center { text-align: center; }
+        .relative { position: relative; }
+        .overflow-hidden { overflow: hidden; }
+  </style>
+
 
 
 
