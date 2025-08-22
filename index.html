@@ -1416,6 +1416,181 @@
 
 
 
+      <section id="testimonials" class="testimonials-section">
+        <div class="testimonials-bg"></div>
+        <div class="about-bg">
+            <div class="about-orb-1"></div>
+            <div class="about-orb-2"></div>
+        </div>
+        <div class="container">
+            <div class="section-content">
+                <div class="text-center">
+                    <span class="section-badge">Témoignages clients</span>
+                    <h2 class="section-title">Ce que disent nos <span class="gradient">clients</span></h2>
+                </div>
+
+                <div class="testimonial-carousel">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote-icon">
+                            <i data-lucide="quote"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i data-lucide="star" class="star"></i>
+                                <i data-lucide="star" class="star"></i>
+                                <i data-lucide="star" class="star"></i>
+                                <i data-lucide="star" class="star"></i>
+                                <i data-lucide="star" class="star"></i>
+                            </div>
+                            <blockquote class="testimonial-text" id="testimonial-text">
+                                "SkyFab a transformé notre site en un outil moderne et sécurisé. Leurs agents IA ont vraiment optimisé nos processus internes. Merci !"
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="author-avatar" id="author-avatar">J</div>
+                                <div class="author-info">
+                                    <div class="author-name" id="author-name">Julie M.</div>
+                                    <div class="author-title" id="author-title">CEO, Boutique En Ligne</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-nav">
+                        <button class="nav-btn" id="prev-btn">
+                            <i data-lucide="chevron-left"></i>
+                        </button>
+                        <div class="nav-dots">
+                            <div class="nav-dot active" data-index="0"></div>
+                            <div class="nav-dot" data-index="1"></div>
+                            <div class="nav-dot" data-index="2"></div>
+                        </div>
+                        <button class="nav-btn" id="next-btn">
+                            <i data-lucide="chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="section-cta">
+                    <a href="#contact" class="btn btn-primary">Rejoignez nos clients satisfaits</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Testimonials data
+        const testimonials = [
+            {
+                text: "SkyFab a transformé notre site en un outil moderne et sécurisé. Leurs agents IA ont vraiment optimisé nos processus internes. Merci !",
+                author: "Julie M.",
+                title: "CEO, Boutique En Ligne",
+                avatar: "J"
+            },
+            {
+                text: "J'ai été impressionné par la réactivité et la créativité de SkyFab. Mon application SaaS est maintenant totalement fonctionnelle et intuitive.",
+                author: "Marc L.",
+                title: "Fondateur, Startup Tech",
+                avatar: "M"
+            },
+            {
+                text: "Professionnel, efficace et à l'écoute. SkyFab nous a aidé à automatiser nos tâches répétitives grâce à l'IA, ce qui a vraiment libéré notre temps.",
+                author: "Sarah D.",
+                title: "Directrice, PME locale",
+                avatar: "S"
+            }
+        ];
+
+        let currentTestimonial = 0;
+
+        // Testimonial carousel functionality
+        function updateTestimonial(index) {
+            const testimonial = testimonials[index];
+            document.getElementById('testimonial-text').textContent = `"${testimonial.text}"`;
+            document.getElementById('author-name').textContent = testimonial.author;
+            document.getElementById('author-title').textContent = testimonial.title;
+            document.getElementById('author-avatar').textContent = testimonial.avatar;
+
+            // Update dots
+            document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        // Navigation buttons
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            updateTestimonial(currentTestimonial);
+        });
+
+        document.getElementById('next-btn').addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            updateTestimonial(currentTestimonial);
+        });
+
+        // Dot navigation
+        document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentTestimonial = index;
+                updateTestimonial(currentTestimonial);
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('fade-in')) {
+                        entry.target.classList.add('visible');
+                    }
+                    if (entry.target.classList.contains('feature-card')) {
+                        const delay = parseInt(entry.target.dataset.delay) || 0;
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                        }, delay);
+                    }
+                    if (entry.target.classList.contains('value-card')) {
+                        const delay = parseInt(entry.target.dataset.delay) || 0;
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                        }, delay);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.fade-in, .feature-card, .value-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Auto-advance testimonials every 5 seconds
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            updateTestimonial(currentTestimonial);
+        }, 5000);
+    </script>
 <style type="text/css">
 
   :root {
